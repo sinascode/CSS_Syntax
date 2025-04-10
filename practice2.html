@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox Layout</title>
+  <style>
+    /* 전체 레이아웃을 감싸는 박스 */
+    .container {
+      display: flex;           /* Flexbox 레이아웃 사용 */
+      justify-content: space-between; /* 요소들 사이에 균등한 간격 */
+      align-items: center;     /* 수직 방향 가운데 정렬 */
+      height: 500px;           /* 화면 전체 높이 */
+      padding: 20px;
+      background-color:peachpuff;
+    }
+
+    /* 안에 들어갈 각 박스 스타일 */
+    .box {
+      width: 150px;
+      height: 150px;
+      background-color: palevioletred;
+      color: white;
+      font-size: 20px;
+      display: flex;
+      justify-content: center; /* 텍스트를 가로 중앙 정렬 */
+      align-items: center;     /* 텍스트를 세로 중앙 정렬 */
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+  </div>
+
+</body>
+</html>
