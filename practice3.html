@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox</title>
+  <style>
+
+
+/* flex-basis	요소의 기본 너비/높이를 설정. width와 유사하지만 Flex 안에서 동작함.
+flex-grow	남는 공간을 얼마나 차지할지를 정하는 값 (비율로 작동함)
+모든 요소가 flex-grow: 0; 이면 남는 공간은 아무도 안 가져가고, 원래 크기만 유지
+
+flex-shrink	공간이 부족할 때, 얼마나 빨리 줄어들지 결정하는 값
+만약 너비가 부족해지면, box2는 box1보다 2배 빠르게 줄어듦
+
+order	요소의 순서를 변경함 (작을수록 먼저 나옴)
+align-self	개별 요소만 정렬 기준을 다르게 적용할 수 있음 */
+   
+
+/* 전체 레이아웃을 감싸는 컨테이너 */
+    .container {
+      display: flex;                /* Flexbox 사용 */
+      flex-direction: row;          /* 가로 방향 정렬 */
+      justify-content: space-around;/* 요소들 사이에 일정한 간격 */
+      align-items: center;         /* 세로 방향으로 컨테이너 높이에 맞춤 */
+      height: 100vh;                /* 브라우저 높이 전체 사용 */
+      padding: 10px;
+      background-color: #f0f0f0;
+    }
+
+    /* 공통 박스 스타일 */
+    .box {
+      background-color: #4a90e2;
+      color: white;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* 박스 개별 스타일 */
+
+    .box1 {
+      flex-basis: 200px;    /* 기본 너비 설정 */
+      /* 남는 공간을 1 비율로 차지 */
+      flex-grow: 1;         /* 남는 공간을 가장 많이 차지함 */
+      flex-shrink: 1;       /* 창이 줄어들면 줄어들 수 있음 */
+    }
+
+    .box2 {
+      flex-basis: 150px;    /* 기본 너비는 작지만 */
+      /* 남는 공간을 2 비율로 차지 */
+      flex-grow: 2;         /* 더 빠르게 넓어진다 (box1보다 2배 넓게) */
+      flex-shrink: 1;
+      order: 3;             /* 세 번째로 정렬 (기본은 0) */
+      background-color: #50e3c2;
+    }
+
+    .box3 {
+      flex-basis: 100px;
+      flex-grow: 0;         /* 절대 확장하지 않음 */
+      flex-shrink: 0;       /* 줄어들지도 않음 */
+      order: 1;             /* 첫 번째로 정렬 */
+      background-color: #9013fe;
+      align-self: center;   /* 이 박스만 세로 중앙 정렬 */
+    }
+
+    .box4 {
+      flex-basis: 120px;
+      flex-grow: 1;
+      flex-shrink: 2;       /* 창이 작아지면 더 많이 줄어듦 */
+      order: 2;             /* 두 번째로 정렬 */
+      background-color: #f5a623;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="box box1">Box 1</div>
+    <div class="box box2">Box 2</div>
+    <div class="box box3">Box 3</div>
+    <div class="box box4">Box 4</div>
+  </div>
+
+</body>
+</html>
